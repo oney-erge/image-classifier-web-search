@@ -12,6 +12,11 @@ updates:
       development-dependencies:
         dependency-type: development
         update-types: ["minor", "patch"]
+    ignore:
+      # setuptools appears only as the [build-system] floor (>=68), not in
+      # uv.lock, so the uv updater errors with "No files have changed" on
+      # every run. Nothing to update there; the floor is bumped by hand.
+      - dependency-name: "setuptools"
   - package-ecosystem: github-actions
     directory: /
     schedule:
