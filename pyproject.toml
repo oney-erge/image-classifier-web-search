@@ -8,16 +8,16 @@ license = { text = "MIT" }
 authors = [{ name = "Oney Erge", email = "48371335+oney-erge@users.noreply.github.com" }]
 
 dependencies = [
-    "torch>=2.0",
+    "torch>=2.14.1",
     "torchvision>=0.15",
     "duckduckgo-search>=6.0",
     "httpx>=0.27",
     "Pillow>=10.0",
     "tqdm>=4.66",
     "numpy>=1.26",
-    "typer>=0.12",
+    "typer>=0.27.3",
     "rich>=13.0",
-    "gradio>=6.28.0",
+    "gradio>=6.30.0",
 ]
 
 [project.urls]
@@ -32,7 +32,7 @@ notebook = [
 ]
 dev = [
     "pytest>=7.0",
-    "ruff>=0.16.9",
+    "ruff>=0.17.0",
 ]
 
 [project.scripts]
