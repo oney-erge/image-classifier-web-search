@@ -32,7 +32,7 @@ notebook = [
 ]
 dev = [
     "pytest>=7.0",
-    "ruff>=0.17.0",
+    "ruff>=0.17.1",
 ]
 
 [project.scripts]
