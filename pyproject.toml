@@ -3,7 +3,7 @@ name = "zero-label"
 version = "0.2.0"
 description = "Train a custom image classifier from search terms — no dataset, no labelling"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Oney Erge", email = "48371335+oney-erge@users.noreply.github.com" }]
 
@@ -48,11 +48,17 @@ py-modules = ["cli", "app"]
 testpaths = ["tests"]
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py311"
 extend-exclude = ["notebooks"]
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]
+
+[tool.uv]
+# gradio 6.x declares pillow<13, but Pillow 13.0.0 is the only release with the
+# October 2026 security fixes. Gradio's main branch already allows pillow<14
+# (gradio-app/gradio#14005); remove this once a released gradio allows it.
+override-dependencies = ["pillow>=13.0.0"]
 
 [[tool.uv.index]]
 name = "pytorch-cpu"
