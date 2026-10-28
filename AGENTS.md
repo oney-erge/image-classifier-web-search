@@ -20,7 +20,7 @@ Core boundaries:
 Use the committed uv lockfile for development:
 
 ```bash
-uv sync --frozen --extra dev
+uv sync --frozen
 uv run --frozen ruff check .
 uv run --frozen pytest -q
 uv run python cli.py --help
