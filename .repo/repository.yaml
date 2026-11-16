@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "repository": {"id": "oney-erge/image-classifier-web-search", "owner": "oney-erge", "maintenance": "unclassified", "interfaces": ["cli", "browser-ui"]},
+  "capabilities": ["ml-research", "external-effects"],
+  "components": [{"id": "pipeline", "root": "autovision"}],
+  "environment": {"source": "pyproject.toml", "checkout": "sparse; expand required paths before running checks"},
+  "checks": {"config-and-trainer": {"argv": ["python", "-m", "pytest", "tests/test_config.py", "tests/test_trainer.py", "-q"], "cwd": ".", "timeout_seconds": 300, "effects": "local-test-files"}},
+  "journeys": [{"id": "train-and-predict", "user_outcome": "Train and reload a classifier with accurate label and dataset identity", "checks": ["config-and-trainer"], "additional_evidence_needed": ["offline tiny-dataset train/save/reload", "empty download recovery", "network and GPU checks separately"]}],
+  "state": {"owner": "autovision/trainer.py", "invariant": "Preserve label ordering and checkpoint provenance."},
+  "evidence": {"status": "not-collected-by-repoctl"},
+  "agent": {"instruction_entry": "AGENTS.md", "command_trust": "external-to-repository"}
+}
